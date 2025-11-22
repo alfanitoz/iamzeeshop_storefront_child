@@ -87,17 +87,24 @@ a {
     padding-top: 0 !important;
 }
 
-/* SPECTRA COMPATIBILITY OVERRIDES (FIXED)
-   Forces Spectra blocks to use I Am Zee variables 
-*/
+/* =========================================
+   I AM ZEE - GLOBAL SPECTRA & UI OVERRIDES
+   (Consolidated Fix)
+   ========================================= */
 
-/* Force Spectra Headings */
+/* --- 1. TYPOGRAPHY & ICONS --- */
 .uagb-heading-text {
     font-family: var(--font-heading) !important;
     color: var(--zee-black);
 }
 
-/* Force Spectra Buttons (The Fix) */
+.uagb-infobox__icon-wrap svg {
+    fill: var(--zee-accent) !important;
+    color: var(--zee-accent) !important;
+}
+
+/* --- 2. GLOBAL BUTTONS (The "Orange Pills") --- */
+/* Target ONLY actual buttons, explicitly excluding slider arrows */
 .uagb-buttons-layout-wrap .wp-block-button__link,
 .uagb-buttons-repeater .wp-block-button__link,
 a.uagb-buttons-repeater {
@@ -106,96 +113,86 @@ a.uagb-buttons-repeater {
     font-family: var(--font-heading);
     font-weight: 600;
     border-radius: 4px !important;
-    border: 0 !important; /* Removes any default grey borders */
+    border: 0 !important;
     padding: 12px 24px !important;
     text-decoration: none !important;
-    box-shadow: none !important; /* Removes default grey shadow if present */
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+    display: inline-block;
 }
 
-/* Hover State */
+/* Button Hover Effect (Subtle Lift) */
 .uagb-buttons-layout-wrap .wp-block-button__link:hover,
 .uagb-buttons-repeater .wp-block-button__link:hover,
 a.uagb-buttons-repeater:hover {
     background-color: var(--zee-accent-hover) !important;
     color: var(--zee-pure-white) !important;
-    transform: translateY(-1px);
+    transform: translateY(-2px); /* Only actual buttons should move */
 }
 
-/* Info Box Icons */
-.uagb-infobox__icon-wrap svg {
-    fill: var(--zee-accent) !important;
-    color: var(--zee-accent) !important;
-}
-
-/* SLIDER CONTROLS FIX 
-   Reset navigation arrows and dots so they don't look like pill buttons 
+/* --- 3. SLIDER & GALLERY CONTROLS (The "No-Jump" Fix) --- */
+/* Targeting both Standard Slick Arrows and Spectra Gallery Arrows.
+   We FORCE them to stay centered and strip all "button" styling.
 */
-
-/* Reset Arrows */
-.uagb-block- .slick-arrow,
 .uagb-slick-carousel .slick-arrow,
-.slick-slider .slick-arrow {
-    background-color: transparent !important; /* Remove orange bg */
-    color: var(--zee-accent) !important; /* Make the arrow icon Orange */
-    border: none !important;
-    padding: 0 !important;
-    width: 40px !important; /* Standard size for click area */
-    height: 40px !important;
-    box-shadow: none !important;
-    border-radius: 50% !important; /* Circular hover effect */
-}
-
-/* Hover effect for Arrows */
-.uagb-block- .slick-arrow:hover,
-.slick-slider .slick-arrow:hover {
-    background-color: rgba(0,0,0,0.05) !important; /* Subtle grey circle on hover */
-    transform: none !important; /* Stop the "lift" animation */
-    color: var(--zee-accent-hover) !important;
-}
-
-/* Reset Dots (Pagination) */
-.slick-dots li button {
+.spectra-image-gallery__control-arrows,
+.slick-arrow {
+    /* 1. Kill Button Styling */
     background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    
+    /* 2. Fix Color */
+    color: var(--zee-accent) !important;
+    
+    /* 3. LOCK POSITION (The Anti-Jump Fix) */
+    /* We use translateY(-50%) to keep it vertically centered perfectly. */
+    top: 50% !important;
+    transform: translateY(-50%) !important; 
+    margin: 0 !important;
+    opacity: 1 !important;
+}
+
+/* Hover State - STRICTLY LOCKED */
+.uagb-slick-carousel .slick-arrow:hover,
+.spectra-image-gallery__control-arrows:hover,
+.slick-arrow:hover {
+    background-color: transparent !important;
+    color: var(--zee-accent-hover) !important;
+    
+    /* IMPORTANT: Force the exact same transform as non-hover to prevent movement */
+    transform: translateY(-50%) !important; 
+    margin: 0 !important;
+}
+
+/* Force SVG Icon Color */
+.spectra-image-gallery__control-arrows svg,
+.slick-arrow svg {
+    fill: currentColor !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/* --- 4. PAGINATION DOTS --- */
+.slick-dots li button {
+    background: transparent !important;
+    box-shadow: none !important;
     width: auto !important;
     height: auto !important;
     padding: 5px !important;
-    border-radius: 0 !important;
 }
 
-/* Style the Dot itself */
 .slick-dots li button:before {
-    font-size: 10px !important;
-    color: var(--zee-grey) !important; /* Grey inactive dots */
+    font-size: 10px !important; /* Make dots smaller/cleaner */
+    color: var(--zee-grey) !important;
     opacity: 0.5 !important;
 }
 
 .slick-dots li.slick-active button:before {
-    color: var(--zee-accent) !important; /* Orange active dot */
+    color: var(--zee-accent) !important;
     opacity: 1 !important;
-}
-
-/* SPECTRA GALLERY ARROW FIX
-   Specific fix for the Image Gallery block navigation 
-*/
-
-.spectra-image-gallery__control-arrows {
-    background-color: transparent !important; /* Kills the box */
-    box-shadow: none !important;
-    border: none !important;
-    transform: none !important; /* Kills the movement/jump */
-    transition: color 0.3s ease !important; /* Smooth color change only */
-    color: var(--zee-accent) !important; /* Sets the arrow color */
-}
-
-/* Force the SVG inside to take the color */
-.spectra-image-gallery__control-arrows svg {
-    fill: currentColor !important; 
-}
-
-/* Hover State - No Movement, Just Darker Orange */
-.spectra-image-gallery__control-arrows:hover {
-    background-color: transparent !important;
-    transform: none !important; /* Double check to stop the jump */
-    color: var(--zee-accent-hover) !important;
-    margin-top: -20px !important; /* Locks vertical position if it was shifting margins */
 }
