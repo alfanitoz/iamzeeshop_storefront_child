@@ -77,3 +77,12 @@ a {
     background-color: var(--zee-pure-white);
     border-bottom: 1px solid var(--zee-border);
 }
+
+/* Hide Page Title only on Homepage */
+.home.page .entry-header {
+    display: none;
+}
+/* Remove top padding to make the Hero touch the menu */
+.home.page .content-area {
+    padding-top: 0 !important;
+}
