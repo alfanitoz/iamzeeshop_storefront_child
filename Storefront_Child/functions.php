@@ -10,3 +10,11 @@ function iamzee_enqueue_styles() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'iamzee_enqueue_styles' );
+
+/**
+ * Enqueue Google Fonts (Plus Jakarta Sans)
+ */
+function iamzee_add_google_fonts() {
+    wp_enqueue_style( 'iamzee-google-fonts', 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap', false );
+}
+add_action( 'wp_enqueue_scripts', 'iamzee_add_google_fonts' );

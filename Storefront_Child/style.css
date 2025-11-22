@@ -9,3 +9,71 @@ Template: storefront
 
 /* --------------- Theme customization starts here ----------------- */
 
+/* I Am Zee - Design System 
+   ------------------------
+*/
+
+:root {
+    /* Palette */
+    --zee-black: #1A1A1A;
+    --zee-white: #FAFAFA;
+    --zee-pure-white: #ffffff;
+    --zee-accent: #D35400; 
+    --zee-accent-hover: #A04000;
+    --zee-grey: #757575;
+    --zee-border: #E0E0E0;
+
+    /* Typography */
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--zee-white);
+    color: var(--zee-black);
+    font-family: var(--font-body);
+}
+
+/* Headings Override */
+h1, h2, h3, h4, h5, h6, 
+.site-title, 
+.widget-title {
+    font-family: var(--font-heading);
+    color: var(--zee-black);
+    letter-spacing: -0.03em; /* PJS looks tighter and more premium with negative spacing */
+    font-weight: 700;
+}
+
+/* Button Overrides (Global) */
+button, 
+input[type="button"], 
+input[type="reset"], 
+input[type="submit"], 
+.button, 
+.added_to_cart, 
+.widget a.button {
+    background-color: var(--zee-accent) !important;
+    color: var(--zee-pure-white) !important;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    border-radius: 4px; /* Slight curve, not pill-shaped */
+    transition: all 0.3s ease;
+}
+
+button:hover, 
+input[type="button"]:hover, 
+input[type="submit"]:hover, 
+.button:hover {
+    background-color: var(--zee-accent-hover) !important;
+    transform: translateY(-1px); /* Micro-interaction */
+}
+
+/* Link Color */
+a {
+    color: var(--zee-accent);
+}
+
+.site-header {
+    background-color: var(--zee-pure-white);
+    border-bottom: 1px solid var(--zee-border);
+}
