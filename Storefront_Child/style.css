@@ -86,3 +86,37 @@ a {
 .home.page .content-area {
     padding-top: 0 !important;
 }
+
+/* SPECTRA COMPATIBILITY OVERRIDES 
+   Forces Spectra blocks to use I Am Zee variables 
+*/
+
+/* Force Spectra Headings to use Plus Jakarta Sans */
+.uagb-heading-text {
+    font-family: var(--font-heading) !important;
+    color: var(--zee-black);
+}
+
+/* Force Spectra Buttons to match our Theme Buttons */
+.uagb-buttons-layout-wrap .uagb-button__link {
+    background-color: var(--zee-accent) !important;
+    color: var(--zee-pure-white) !important;
+    font-family: var(--font-heading);
+    border-radius: 4px !important;
+    padding: 12px 24px !important; /* Make them chunky */
+}
+
+.uagb-buttons-layout-wrap .uagb-button__link:hover {
+    background-color: var(--zee-accent-hover) !important;
+}
+
+/* Info Box Icons (The Trust Bar) */
+.uagb-infobox__icon-wrap svg {
+    fill: var(--zee-accent) !important; /* Makes icons orange */
+    color: var(--zee-accent) !important;
+}
+
+/* Container padding defaults */
+.uagb-block- section {
+    max-width: 100%;
+}
