@@ -87,36 +87,42 @@ a {
     padding-top: 0 !important;
 }
 
-/* SPECTRA COMPATIBILITY OVERRIDES 
+/* SPECTRA COMPATIBILITY OVERRIDES (FIXED)
    Forces Spectra blocks to use I Am Zee variables 
 */
 
-/* Force Spectra Headings to use Plus Jakarta Sans */
+/* Force Spectra Headings */
 .uagb-heading-text {
     font-family: var(--font-heading) !important;
     color: var(--zee-black);
 }
 
-/* Force Spectra Buttons to match our Theme Buttons */
-.uagb-buttons-layout-wrap .uagb-button__link {
+/* Force Spectra Buttons (The Fix) */
+.uagb-buttons-layout-wrap .wp-block-button__link,
+.uagb-buttons-repeater .wp-block-button__link,
+a.uagb-buttons-repeater {
     background-color: var(--zee-accent) !important;
     color: var(--zee-pure-white) !important;
     font-family: var(--font-heading);
+    font-weight: 600;
     border-radius: 4px !important;
-    padding: 12px 24px !important; /* Make them chunky */
+    border: 0 !important; /* Removes any default grey borders */
+    padding: 12px 24px !important;
+    text-decoration: none !important;
+    box-shadow: none !important; /* Removes default grey shadow if present */
 }
 
-.uagb-buttons-layout-wrap .uagb-button__link:hover {
+/* Hover State */
+.uagb-buttons-layout-wrap .wp-block-button__link:hover,
+.uagb-buttons-repeater .wp-block-button__link:hover,
+a.uagb-buttons-repeater:hover {
     background-color: var(--zee-accent-hover) !important;
+    color: var(--zee-pure-white) !important;
+    transform: translateY(-1px);
 }
 
-/* Info Box Icons (The Trust Bar) */
+/* Info Box Icons */
 .uagb-infobox__icon-wrap svg {
-    fill: var(--zee-accent) !important; /* Makes icons orange */
+    fill: var(--zee-accent) !important;
     color: var(--zee-accent) !important;
-}
-
-/* Container padding defaults */
-.uagb-block- section {
-    max-width: 100%;
 }
