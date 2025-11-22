@@ -126,3 +126,76 @@ a.uagb-buttons-repeater:hover {
     fill: var(--zee-accent) !important;
     color: var(--zee-accent) !important;
 }
+
+/* SLIDER CONTROLS FIX 
+   Reset navigation arrows and dots so they don't look like pill buttons 
+*/
+
+/* Reset Arrows */
+.uagb-block- .slick-arrow,
+.uagb-slick-carousel .slick-arrow,
+.slick-slider .slick-arrow {
+    background-color: transparent !important; /* Remove orange bg */
+    color: var(--zee-accent) !important; /* Make the arrow icon Orange */
+    border: none !important;
+    padding: 0 !important;
+    width: 40px !important; /* Standard size for click area */
+    height: 40px !important;
+    box-shadow: none !important;
+    border-radius: 50% !important; /* Circular hover effect */
+}
+
+/* Hover effect for Arrows */
+.uagb-block- .slick-arrow:hover,
+.slick-slider .slick-arrow:hover {
+    background-color: rgba(0,0,0,0.05) !important; /* Subtle grey circle on hover */
+    transform: none !important; /* Stop the "lift" animation */
+    color: var(--zee-accent-hover) !important;
+}
+
+/* Reset Dots (Pagination) */
+.slick-dots li button {
+    background-color: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 5px !important;
+    border-radius: 0 !important;
+}
+
+/* Style the Dot itself */
+.slick-dots li button:before {
+    font-size: 10px !important;
+    color: var(--zee-grey) !important; /* Grey inactive dots */
+    opacity: 0.5 !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: var(--zee-accent) !important; /* Orange active dot */
+    opacity: 1 !important;
+}
+
+/* SPECTRA GALLERY ARROW FIX
+   Specific fix for the Image Gallery block navigation 
+*/
+
+.spectra-image-gallery__control-arrows {
+    background-color: transparent !important; /* Kills the box */
+    box-shadow: none !important;
+    border: none !important;
+    transform: none !important; /* Kills the movement/jump */
+    transition: color 0.3s ease !important; /* Smooth color change only */
+    color: var(--zee-accent) !important; /* Sets the arrow color */
+}
+
+/* Force the SVG inside to take the color */
+.spectra-image-gallery__control-arrows svg {
+    fill: currentColor !important; 
+}
+
+/* Hover State - No Movement, Just Darker Orange */
+.spectra-image-gallery__control-arrows:hover {
+    background-color: transparent !important;
+    transform: none !important; /* Double check to stop the jump */
+    color: var(--zee-accent-hover) !important;
+    margin-top: -20px !important; /* Locks vertical position if it was shifting margins */
+}
