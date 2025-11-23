@@ -213,3 +213,28 @@ a.added_to_cart:hover {
     transform: translateY(-1px); /* Matches our other buttons */
     text-decoration: none !important;
 }
+
+/* FIX: Cart "Remove Item" Link
+   Stop it from looking like a primary button 
+*/
+.wc-block-cart-item__remove-link {
+    background-color: transparent !important;
+    color: var(--zee-grey) !important; /* Make it subtle grey */
+    font-size: 0.85em !important;
+    text-decoration: underline !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    font-weight: normal !important;
+    display: inline !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* Hover State - Turn Red to indicate "Delete" */
+.wc-block-cart-item__remove-link:hover {
+    background-color: transparent !important;
+    color: #e74c3c !important; /* Standard "Danger" Red */
+    transform: none !important; /* Stop it from jumping */
+    cursor: pointer;
+}
