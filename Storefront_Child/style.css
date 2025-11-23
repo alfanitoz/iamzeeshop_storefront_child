@@ -196,3 +196,20 @@ a.uagb-buttons-repeater:hover {
     color: var(--zee-accent) !important;
     opacity: 1 !important;
 }
+
+/* FIX: View Cart Button (Dynamic) 
+   Adds spacing and fixes the missing hover effect
+*/
+
+a.added_to_cart {
+    margin-left: 10px !important; /* Gives it breathing room */
+    display: inline-block !important; /* Ensures it acts like a real button */
+}
+
+/* Force the Hover Effect on this specific button */
+a.added_to_cart:hover {
+    background-color: var(--zee-accent-hover) !important;
+    color: var(--zee-pure-white) !important;
+    transform: translateY(-1px); /* Matches our other buttons */
+    text-decoration: none !important;
+}
