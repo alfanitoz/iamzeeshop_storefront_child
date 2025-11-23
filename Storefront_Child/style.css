@@ -238,3 +238,39 @@ a.added_to_cart:hover {
     transform: none !important; /* Stop it from jumping */
     cursor: pointer;
 }
+
+/* FOOTER OVERRIDES (Dark Mode) */
+.site-footer {
+    background-color: var(--zee-black) !important;
+    color: #cccccc !important; /* Soft grey text */
+    padding-top: 3em !important;
+    padding-bottom: 2em !important;
+    margin-top: 0 !important;
+}
+
+/* Footer Headings (Widgets) */
+.site-footer h1, .site-footer h2, .site-footer h3, 
+.site-footer h4, .site-footer h5, .site-footer h6, 
+.site-footer .widget-title {
+    color: var(--zee-pure-white) !important;
+    font-family: var(--font-heading);
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important; /* Subtle divider */
+}
+
+/* Footer Links */
+.site-footer a {
+    color: #999999 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: var(--zee-accent) !important; /* Orange on hover */
+}
+
+/* Center the copyright text we just added */
+.site-footer .site-info {
+    padding-top: 2em;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    width: 100%;
+}
