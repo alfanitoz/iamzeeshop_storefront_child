@@ -81,3 +81,22 @@ function iamzee_dequeue_cart_fragments() {
         wp_dequeue_script( 'wc-cart-fragments' ); 
     }
 }
+
+/**
+ * Custom Footer Credit (Remove Storefront Credits)
+ */
+function iamzee_edit_footer_credit() {
+    remove_action( 'storefront_footer', 'storefront_credit', 20 );
+    add_action( 'storefront_footer', 'iamzee_custom_credit', 20 );
+}
+add_action( 'init', 'iamzee_edit_footer_credit' );
+
+function iamzee_custom_credit() {
+    ?>
+    <div class="site-info" style="float:none; text-align:center;">
+        &copy; <?php echo date( 'Y' ); ?> <strong>I Am Zee Shop</strong>. All rights reserved.
+        <br>
+        <span style="font-size:0.85em; opacity:0.6;">Curated for the Modern Indian Lifestyle.</span>
+    </div>
+    <?php
+}
